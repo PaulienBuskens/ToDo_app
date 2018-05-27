@@ -25,4 +25,29 @@ class CreatesController extends Controller
         return redirect('/')->with('info','Item Saved Successfully!');
         
     }
+
+    public function update($id){
+        $items = Item::find($id);
+        return view('update',['items'=>$items]);
+    }
+
+    public function edit(Request $request, $id){
+        $this->validate($request, [
+            'title' => 'required',
+            'description' => 'required'
+        ]);
+        $data = array(
+            'title'=> $request->input('title'),
+            'description'=> $request->input('description'),
+            
+        );
+
+        Item::where('id', $id)->update($data);
+        return redirect('/')->with('info','Item Updated Successfully!');
+    }
+
+    public function read($id){
+        $items = Item::find($id);
+        return view('read',['items'=>$items]);
+    }
 }
