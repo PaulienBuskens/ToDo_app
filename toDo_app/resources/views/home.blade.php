@@ -3,6 +3,13 @@
     <div class="container">
         <div class="row">
             <legend>to do app</legend>
+
+            @if(session('info'))
+                <div class=" alert alert-success"> 
+                    {{session('info')}}
+                </div> 
+            @endif
+
             <table class="table table-hover">
                 <thead>
                   <tr>
@@ -17,7 +24,6 @@
                 @if(count($items)>0)
                     @foreach($items->all() as $item)
                     
-
                   <tr class="table-default">
                     <td>{{$item->id}}</td>
                     <td>{{$item->title}}</td>
