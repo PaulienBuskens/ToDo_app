@@ -14,17 +14,22 @@
                 </thead>
                 <tbody>
 
+                @if(count($items)>0)
+                    @foreach($items->all() as $item)
+                    
+
                   <tr class="table-default">
-                    <th scope="row">Default</th>
-                    <td>Column content</td>
-                    <td>Column content</td>
+                    <td>{{$item->id}}</td>
+                    <td>{{$item->title}}</td>
+                    <td>{{$item->description}}</td>
                     <td>
                         <a href="{{url('')}}"class="btn btn-primary">Read</a> |
                         <a href="{{url('')}}"class="btn btn-success">Update</a> |
                         <a href="{{url('')}}"class="btn btn-warning">Delete</a>
                     </td>
                   </tr>
-
+                  @endforeach
+                @endif
                 </tbody>
             </table> 
         </div>
