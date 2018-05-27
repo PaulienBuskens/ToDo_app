@@ -50,4 +50,9 @@ class CreatesController extends Controller
         $items = Item::find($id);
         return view('read',['items'=>$items]);
     }
+
+    public function delete($id){
+        Item::where('id', $id)->delete();
+        return redirect('/')->with('info','Item Deleted Successfully!');
+    }
 }

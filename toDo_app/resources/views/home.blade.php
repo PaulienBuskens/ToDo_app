@@ -31,7 +31,7 @@
                     <td>
                         <a href='{{url("/read/{$item->id}")}}' class="btn btn-primary">Read</a> |
                         <a href='{{url("/update/{$item->id}")}}' class="btn btn-success">Update</a> |
-                        <a href="{{url('')}}" class="btn btn-warning">Delete</a>
+                        <a href='{{url("/delete/{$item->id}")}}' class="btn btn-warning">Delete</a>
                     </td>
                   </tr>
                   @endforeach
