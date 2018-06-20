@@ -1,9 +1,10 @@
 @include('inc.header')
 
+
     <div class="container">
         <div class="row">
             <legend>to do app</legend>
-
+    @if(Auth::user())
             @if(session('info'))
                 <div class=" alert alert-success"> 
                     {{session('info')}}
@@ -38,7 +39,15 @@
                 @endif
                 </tbody>
             </table> 
+            
+            @else
+
+            <h2>Please login or sign up to see the to do list</h2>
+
+            @endif
         </div>
+        
     </div>
+
     
 @include('inc.footer')

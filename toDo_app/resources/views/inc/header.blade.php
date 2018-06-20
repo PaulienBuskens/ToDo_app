@@ -17,12 +17,23 @@
       <li class="nav-item active">
         <a class="nav-link" href="{{url('/')}}">Home <span class="sr-only">(current)</span></a>
       </li>
+
+      @if(Auth::user())
       <li class="nav-item">
         <a class="nav-link" href="{{url('/create')}}">Create</a>
       </li>
+      @endif
     </ul>
+
     <ul class="nav navbar-nav navbar-right">
+    @if(Auth::user())
+
+        <li class="nav-item"><a class="nav-link" href="{{url('/')}}">{{ ucwords(Auth::user()->name) }}</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{url('/logout')}}"> Logout</a></li>
+        
+        @else
         <li class="nav-item"><a class="nav-link" href="{{url('/signin')}}"> Login </a></li>
         <li class="nav-item"><a class="nav-link" href="{{url('/register')}}"> Sign Up</a></li>
+        @endif
       </ul>
 </nav>

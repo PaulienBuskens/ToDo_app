@@ -25,6 +25,13 @@ Route::get('/register', function(){
     return view('register');
 });
 
+Route::get('/logout', function(){
+    Auth::logout();
+
+    return Redirect::to('/');
+})->middleware("auth");
+
+
 Route::post('/insert', 'CreatesController@add');
 Route::get('/update/{id}', 'CreatesController@update');
 Route::post('/edit/{id}', 'CreatesController@edit');
@@ -34,3 +41,5 @@ Route::get('/delete/{id}', 'CreatesController@delete');
 
 Route::post('/register_action', 'RegisterController@store');
 Route::post('/login_check', 'RegisterController@login');
+
+
