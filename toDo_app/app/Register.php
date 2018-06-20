@@ -6,8 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 use Input;
 use Hash;   
 
-class Register extends Model
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class Register extends Authenticatable
 {
+
+//class Register extends Model
+//{
 
     protected $table="register_users";
 

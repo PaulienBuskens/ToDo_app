@@ -8,6 +8,8 @@ use Validator;
 use Redirect;
 use App\Register;
 
+use Auth;
+
 class RegisterController extends Controller
 {
     
@@ -43,5 +45,37 @@ class RegisterController extends Controller
 
         }
 
+    }
+
+    public function login(){
+        $data=Input::except(array('_token'));
+        
+       $rule=array(
+        'email'=>'required|email',
+        'password'=>'required',
+       );
+
+       $validator=Validator::make($data,$rule);
+
+       //var_dump($data);
+       if($validator->fails()){
+            return Redirect::to('signin')->withErrors($validator);
+       } else{
+       // $data=Input::except(array('_token'));
+       // var_dump($data);
+
+       $userdata=array(
+           'email'=>Input::get('email'),
+           'password'=>Input::get('password')
+       );
+
+
+            if(Auth::attempt($userdata)){
+                return Redirect::to('/');
+                
+            } else{
+                return Redirect::to('signin');
+            }
+        }
     }
 }

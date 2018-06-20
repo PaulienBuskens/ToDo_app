@@ -22,7 +22,7 @@
       </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-        <li class="nav-item"><a class="nav-link" href="{{url('/login')}}"> Login </a></li>
+        <li class="nav-item"><a class="nav-link" href="{{url('/signin')}}"> Login </a></li>
         <li class="nav-item"><a class="nav-link" href="{{url('/register')}}"> Sign Up</a></li>
       </ul>
 </nav>
