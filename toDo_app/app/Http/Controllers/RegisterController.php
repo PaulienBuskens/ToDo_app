@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Input;
 use Validator;
 use Redirect;
+use App\Register;
 
 class RegisterController extends Controller
 {
@@ -13,7 +14,7 @@ class RegisterController extends Controller
 
     public function store(){
 
-        $data=Input::except(array('token'));
+        $data=Input::except(array('_token'));
         
        // var_dump($data);
 
@@ -35,8 +36,12 @@ class RegisterController extends Controller
        if($validator->fails()){
             return Redirect::to('register')->withErrors($validator);
        } else{
-           echo "no fail";
-       }
+
+           Register::formstore(Input::except(array('_token','cpassword')));
+
+            return Redirect::to('register')->with('success','successfully registered');
+
+        }
 
     }
 }

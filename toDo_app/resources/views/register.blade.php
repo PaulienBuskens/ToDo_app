@@ -1,13 +1,25 @@
 @include('inc.header')
 
 
+  @if(Session::has('success'))
 
+<div class="row">
+    <div class="col-md-6">
+        <div class="alert alert-success">
+            {{Session::get('success')}}
+        </div>
+    </div>
+</div>
+@endif
 
 <form action="register_action" method="post">
 <input type="hidden" name="_token" value="{{csrf_token()}}">
   
   <fieldset class="col-sm-3" >
     <legend>Register</legend>
+
+  
+
     <div class="form-group row">
       <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
       <div class="col-sm-10">
