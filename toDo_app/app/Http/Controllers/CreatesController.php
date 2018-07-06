@@ -15,12 +15,14 @@ class CreatesController extends Controller
     public function add(REquest $request){
         $this->validate($request, [
             'title' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'dueDate'=>'required'
         ]);
 
         $items = new Item;
         $items->title = $request->input('title');
         $items->description = $request->input('description');
+        $items->dueDate = $request->input('dueDate');
         $items->save();
         return redirect('/')->with('info','Item Saved Successfully!');
         
@@ -34,11 +36,13 @@ class CreatesController extends Controller
     public function edit(Request $request, $id){
         $this->validate($request, [
             'title' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'dueDate' => 'required'
         ]);
         $data = array(
             'title'=> $request->input('title'),
             'description'=> $request->input('description'),
+            'dueDate'=> $request->input('dueDate'),
             
         );
 

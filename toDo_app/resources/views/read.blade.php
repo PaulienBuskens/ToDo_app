@@ -8,6 +8,7 @@
             <div class="card-body">
                 <h4 class="card-title">{{ $items->title}}</h4>
                     <p class="card-text">{{ $items->description}}</p>
+                    <p class="card-text">{{ $items->dueDate}}</p>
                 </div>
             </div>
         </div>

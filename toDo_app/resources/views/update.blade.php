@@ -22,6 +22,10 @@
                             <label for="exampleInputPassword1">Description</label>
                             <textarea name="description" class="form-control" placeholder="Description"><?php echo $items->description; ?></textarea>
                         </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">due date</label>
+                            <input type="text" name="dueDate" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $items->dueDate; ?>" placeholder="due date">
+                        </div>
                         <button type="submit" class="btn btn-primary">Update</button>
                         <a href="{{ url('/')}}" class="btn btn-warning">Cancel</a>
                     </fieldset>
