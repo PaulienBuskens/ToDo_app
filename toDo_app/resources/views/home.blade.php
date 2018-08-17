@@ -1,6 +1,5 @@
 @include('inc.header')
 
-
     <div class="container">
         <div class="row">
             <legend>to do app</legend>
