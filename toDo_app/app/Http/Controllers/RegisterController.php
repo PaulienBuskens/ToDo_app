@@ -13,7 +13,6 @@ use Auth;
 class RegisterController extends Controller
 {
     
-
     public function store(){
 
         $data=Input::except(array('_token'));

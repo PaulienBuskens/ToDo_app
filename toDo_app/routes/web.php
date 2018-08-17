@@ -46,10 +46,8 @@ Route::post('/finished/{id}', 'CreatesController@finished');
 Route::get('deleteDone/{id}', 'CreatesController@deleteDone');
 
 
-
 Route::post('/register_action', 'RegisterController@store');
 Route::post('/login_check', 'RegisterController@login');
-
 
 Route::post('/items/{items}/comments', 'CommentsController@store');
 

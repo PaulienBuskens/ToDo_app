@@ -10,8 +10,6 @@ use Carbon\Carbon;
 class CreatesController extends Controller
 {
 
-    
-
     public function home(){
         $items = Item::all();
         $date = Carbon::today()->format('d-m-Y');
@@ -22,7 +20,7 @@ class CreatesController extends Controller
         $this->validate($request, [
             'title' => 'required|unique:items|max:100',
             'description' => 'required',
-            'dueDate'=>'required|date|after:today'
+            'dueDate'=>'required|date'
         ]);
 
         $items = new Item;
@@ -97,6 +95,6 @@ class CreatesController extends Controller
 
     public function deleteDone($id){
         Archief::where('id', $id)->delete();
-        return redirect('/archief')->with('info','Item Deleted Successfully!');
+        return redirect('/archief')->with('info','Archieved Item Deleted Successfully!');
     }
 }

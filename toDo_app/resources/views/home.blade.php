@@ -12,8 +12,6 @@
                 </div> 
             @endif
 
-            <h1>{{$date}}</h1>
-
             <table class="table table-hover">
                 <thead>
                   <tr>

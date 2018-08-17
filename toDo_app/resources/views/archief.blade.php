@@ -13,7 +13,6 @@
             <table class="table table-hover">
                 <thead>
                   <tr>
-                    
                     <th scope="col">Title</th>
                     <th scope="col">Description</th>
                     <th scope="col">Due Date</th>
@@ -26,7 +25,6 @@
                     @foreach($archiefs->all() as $archief)
                     
                   <tr class="table-default">
-                    
                     <td>{{$archief->title}}</td>
                     <td>{{$archief->description}}</td>
                     <td>{{$archief->dueDate}}</td>
