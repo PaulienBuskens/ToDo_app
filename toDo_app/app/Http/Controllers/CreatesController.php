@@ -5,12 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Item;
 use App\Archief;
+use Carbon\Carbon;
 
 class CreatesController extends Controller
 {
+
+    
+
     public function home(){
         $items = Item::all();
-        return view('home',['items'=>$items]);
+        $date = Carbon::today()->format('d-m-Y');
+        return view('home',['items'=>$items], ['date'=>$date]);
     }
 
     public function add(Request $request){

@@ -1,3 +1,5 @@
+
+
 @include('inc.header')
 
     <div class="container">
@@ -9,6 +11,8 @@
                     {{session('info')}}
                 </div> 
             @endif
+
+            <h1>{{$date}}</h1>
 
             <table class="table table-hover">
                 <thead>
@@ -29,7 +33,12 @@
             
                     <td>{{$item->title}}</td>
                     <td>{{$item->description}}</td>
+                    @if($date > $item->dueDate)
+                        <td style="color:red;">{{$item->dueDate}}</td>
+                    @else
                     <td>{{$item->dueDate}}</td>
+                    @endif
+
                     <td>
                         <a href='{{url("/read/{$item->id}")}}' class="btn btn-primary">Read</a> |
                         <a href='{{url("/update/{$item->id}")}}' class="btn btn-secondary">Update</a> |
