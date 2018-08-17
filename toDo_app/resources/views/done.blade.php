@@ -5,7 +5,7 @@
                 <form method="POST" action="{{ url('/finished', array($items->id))}}">
                     {{csrf_field()}}
                     <fieldset>
-                        <legend>To Do app</legend>
+                        <legend>Check to archief</legend>
                         @if(count($errors) > 0)
                             @foreach($errors->all() as $error)
                                 <div class="alert alert-warning">

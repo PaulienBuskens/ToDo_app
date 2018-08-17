@@ -15,9 +15,9 @@ class CreatesController extends Controller
 
     public function add(Request $request){
         $this->validate($request, [
-            'title' => 'required',
+            'title' => 'required|unique:items|max:100',
             'description' => 'required',
-            'dueDate'=>'required'
+            'dueDate'=>'required|date|after:today'
         ]);
 
         $items = new Item;
@@ -81,7 +81,7 @@ class CreatesController extends Controller
         
         Item::where('id',$id)->delete();
 
-        return redirect('/')->with('info','Item Done Successfully!');
+        return redirect('/')->with('info','Item archieved Successfully!');
    
     }
 

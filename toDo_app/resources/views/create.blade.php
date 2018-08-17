@@ -23,7 +23,7 @@
                             <textarea name="description" class="form-control" placeholder="Description"></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">due Date</label>
+                            <label for="exampleInputEmail1">Due Date (dd-mm-yyyy)</label>
                             <input type="text" name="dueDate" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="dueDate">
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>

@@ -13,7 +13,7 @@
             <table class="table table-hover">
                 <thead>
                   <tr>
-                    <th scope="col">ID</th>
+                    
                     <th scope="col">Title</th>
                     <th scope="col">Description</th>
                     <th scope="col">Due Date</th>
@@ -26,7 +26,7 @@
                     @foreach($items->all() as $item)
                     
                   <tr class="table-default">
-                    <td>{{$item->id}}</td>
+            
                     <td>{{$item->title}}</td>
                     <td>{{$item->description}}</td>
                     <td>{{$item->dueDate}}</td>
