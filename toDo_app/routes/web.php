@@ -17,6 +17,7 @@ Route::get('/create', function(){
     return view('create');
 });
 
+
 Route::get('/signin', function(){
     return view('login');
 });
@@ -32,11 +33,18 @@ Route::get('/logout', function(){
 })->middleware("auth");
 
 
+Route::get('/archief', 'CreatesController@archief');
+
+
 Route::post('/insert', 'CreatesController@add');
 Route::get('/update/{id}', 'CreatesController@update');
 Route::post('/edit/{id}', 'CreatesController@edit');
 Route::get('/read/{id}', 'CreatesController@read');
 Route::get('/delete/{id}', 'CreatesController@delete');
+Route::get('/done/{id}', 'CreatesController@done');
+Route::post('/finished/{id}', 'CreatesController@finished');
+Route::get('deleteDone/{id}', 'CreatesController@deleteDone');
+
 
 
 Route::post('/register_action', 'RegisterController@store');

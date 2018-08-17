@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Item;
+use App\Archief;
 
 class CreatesController extends Controller
 {
@@ -12,7 +13,7 @@ class CreatesController extends Controller
         return view('home',['items'=>$items]);
     }
 
-    public function add(REquest $request){
+    public function add(Request $request){
         $this->validate($request, [
             'title' => 'required',
             'description' => 'required',
@@ -58,5 +59,39 @@ class CreatesController extends Controller
     public function delete($id){
         Item::where('id', $id)->delete();
         return redirect('/')->with('info','Item Deleted Successfully!');
+    }
+
+    public function done(Request $request,$id){
+        $items = Item::find($id);
+        return view('done',['items'=>$items]);
+    }
+
+    public function finished(Request $request, $id){
+        $this->validate($request, [
+            'title' => 'required',
+            'description' => 'required',
+            'dueDate'=>'required'
+        ]);
+
+        $items = new Archief;
+        $items->title = $request->input('title');
+        $items->description = $request->input('description');
+        $items->dueDate = $request->input('dueDate');
+        $items->save();
+        
+        Item::where('id',$id)->delete();
+
+        return redirect('/')->with('info','Item Done Successfully!');
+   
+    }
+
+    public function archief(){
+        $archiefs = Archief::all();
+        return view('archief',['archiefs'=>$archiefs]);
+    }
+
+    public function deleteDone($id){
+        Archief::where('id', $id)->delete();
+        return redirect('/archief')->with('info','Item Deleted Successfully!');
     }
 }

@@ -31,7 +31,7 @@
     <ul class="nav navbar-nav navbar-right">
     @if(Auth::user())
 
-        <li class="nav-item"><a class="nav-link" href="{{url('/')}}">{{ ucwords(Auth::user()->name) }}</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{url('/')}}">Welkom {{ ucwords(Auth::user()->name) }}</a></li>
         <li class="nav-item"><a class="nav-link" href="{{url('/logout')}}"> Logout</a></li>
         
         @else

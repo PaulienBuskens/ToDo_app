@@ -1,9 +1,8 @@
 @include('inc.header')
 
-
-    <div class="container">
+<div class="container">
         <div class="row">
-            <legend>to do app</legend>
+            <legend>gearchieveerde To Do's</legend>
     @if(Auth::user())
             @if(session('info'))
                 <div class=" alert alert-success"> 
@@ -23,34 +22,24 @@
                 </thead>
                 <tbody>
 
-                @if(count($items)>0)
-                    @foreach($items->all() as $item)
+                @if(count($archiefs)>0)
+                    @foreach($archiefs->all() as $archief)
                     
                   <tr class="table-default">
-                    <td>{{$item->id}}</td>
-                    <td>{{$item->title}}</td>
-                    <td>{{$item->description}}</td>
-                    <td>{{$item->dueDate}}</td>
+                    <td>{{$archief->id}}</td>
+                    <td>{{$archief->title}}</td>
+                    <td>{{$archief->description}}</td>
+                    <td>{{$archief->dueDate}}</td>
                     <td>
-                        <a href='{{url("/read/{$item->id}")}}' class="btn btn-primary">Read</a> |
-                        <a href='{{url("/update/{$item->id}")}}' class="btn btn-secondary">Update</a> |
-                        <a href='{{url("/delete/{$item->id}")}}' class="btn btn-warning">Delete</a> |
-                        <a href='{{url("/done/{$item->id}")}}' class="btn btn-success">Done</a>
+                        <a href='{{url("/deleteDone/{$archief->id}")}}' class="btn btn-warning">Delete</a>
                     </td>
                   </tr>
                   @endforeach
                 @endif
                 </tbody>
             </table> 
-            
-            @else
-
-            <h2>Please login or sign up to see the to do list</h2>
-
-            @endif
+        @endif
         </div>
-        
     </div>
 
-    
 @include('inc.footer')
