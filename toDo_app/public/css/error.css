@@ -1,0 +1,38 @@
+
+
+.opdracht {
+    width: 400px;
+    height: 400px;
+    position: relative;
+    margin:auto;
+}
+
+.head{
+    background-image: url("/img/head.png");
+    position: absolute;
+    width: 90px;
+    height: 67px;
+    left: 160px;
+    top:100px
+}
+
+.body{
+    background-image: url("/img/body.png");
+    position: absolute;
+    width: 148px;
+    height:148px;
+    left: 130px;
+    top: 155px;
+    animation: body-move 5s 0s infinite normal both;
+
+}
+
+@keyframes body-move{
+
+    0%{transform: rotateZ(1080deg);}
+    100% {transform: rotateZ(0deg);}
+}
+
+h1{
+    text-align: center
+}

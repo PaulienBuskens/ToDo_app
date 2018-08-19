@@ -52,3 +52,4 @@ Route::post('/login_check', 'RegisterController@login');
 Route::post('/items/{items}/comments', 'CommentsController@store');
 
 
+Route::get('pagenotfound', ['as'=> 'notfound','uses'=>'CreatesController@pagenotfound']);

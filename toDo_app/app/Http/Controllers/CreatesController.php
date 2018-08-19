@@ -97,4 +97,8 @@ class CreatesController extends Controller
         Archief::where('id', $id)->delete();
         return redirect('/archief')->with('info','Archieved Item Deleted Successfully!');
     }
+
+    public function pagenotfound(){
+        return view('error.404error');
+    }
 }
